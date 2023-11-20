@@ -19,4 +19,5 @@ if __name__ == '__main__':
 print("Jaf")
 print("sus")
 print("jaf test")
-print('git_pull_hida_babe')
+print("xinping")
+print("ihy")
