@@ -19,3 +19,4 @@ if __name__ == '__main__':
 print("Jaf")
 print("sus")
 print("jaf test")
+print("xin ping")
