@@ -54,25 +54,26 @@ If any of the interactions drops to 0 bars, game over screen.
 def stat_drop_1(catClass):
     if catClass.hunger == 1:
         print("Jerry: I'm hungry meow :(")
-    elif catClass.happiness == 1:
+    if catClass.happiness == 1:
         print("Jerry: I'm really sad meow :(")
-    elif catClass.cleanliness == 1:
+    if catClass.cleanliness == 1:
         print("Jerry: I need a shower meow :(")
 
 
 def stat_drop_0(catClass):
+    stat_bool = True
     if catClass.hunger == 0:
-        print("Game Over!\nJerry was too hungry and ran away to find a better owner. "
+        print("Jerry was too hungry and ran away to find a better owner. "
               "Better luck next time!")
-        return False
-    elif catClass.happiness == 0:
-        print("Game Over!\nJerry was too sad and ran away to find a better owner. "
+        stat_bool = False
+    if catClass.happiness == 0:
+        print("Jerry was too sad and ran away to find a better owner. "
               "Better luck next time!")
-        return False
-    elif catClass.cleanliness == 0:
-        print("Game Over!\nJerry got too dirty and ran away to find a better owner. "
+        stat_bool = False
+    if catClass.cleanliness == 0:
+        print("Jerry got too dirty and ran away to find a better owner. "
               "Better luck next time!")
-        return False
-    return True
+        stat_bool = False
+    return stat_bool
 
 # nya nya

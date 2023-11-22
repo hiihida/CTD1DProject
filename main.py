@@ -10,7 +10,8 @@ print("[4] Exit")
 import gameplay as game # import gameplay.py
 
 cat = game.Jerry(3, 3, 3)
-print("Hunger bar: " + str(cat.hunger) + "\nHappiness bar: " + str(cat.happiness) + "\nCleanliness bar: " + str(cat.cleanliness))
+print("Hunger bar: " + str(cat.hunger) + "\nHappiness bar: " + str(cat.happiness) +
+      "\nCleanliness bar: " + str(cat.cleanliness))
 
 while True:
     print("[1] Feed \n[2] Play \n[3] Groom")
@@ -31,16 +32,22 @@ while True:
     elif cat.cleanliness > 4:
         cat.cleanliness = 4
 
+    # keep the min stat to 0
+    if cat.hunger < 0:
+        cat.hunger = 0
+    elif cat.happiness < 0:
+        cat.happiness = 0
+    elif cat.cleanliness < 0:
+        cat.cleanliness = 0
+
+    print("Hunger bar: " + str(cat.hunger) + "\nHappiness bar: " + str(cat.happiness) +
+          "\nCleanliness bar: " + str(cat.cleanliness))
+
     game.stat_drop_1(cat)
     game_state = game.stat_drop_0(cat)
     if game_state is False:
+        print("Game Over!")
         break
-
-    print("Jerry's hunger bar is now " + str(cat.hunger))
-    print("Jerry's happiness bar is now " + str(cat.happiness))
-    print("Jerry's cleanliness bar is now " + str(cat.cleanliness))
-
-# Game Over
 
 # TEST, print your name
 """
