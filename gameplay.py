@@ -3,14 +3,11 @@
 # player wins when self.hunger = 3, self.happiness = 3, self.cleanliness = 3
 class Jerry:
     def __init__(self, hunger, happiness, cleanliness):
-        print("init is called")
         self.hunger = hunger
         self.happiness = happiness
         self.cleanliness = cleanliness
 
 
-cat = Jerry(3, 3, 3)
-print("Hunger bar: " + str(cat.hunger) + "\nHappiness bar: " + str(cat.happiness) + "\nCleanliness bar: " + str(cat.cleanliness))
 # define functions for Feed, Play, Groom
 """
 Feed (Hunger)
@@ -30,23 +27,19 @@ def feed(catClass):
     catClass.hunger += 1
     return catClass
 
-def play():
-    pass
+def play(catClass):
+    catClass.happiness += 2
+    catClass.hunger -= 2
+    return catClass
 
-def groom():
-    pass
+def groom(catClass):
+    catClass.cleanliness += 3
+    catClass.hunger -= 2
+    catClass.happiness -= 2
+    return catClass
 
 # player's input
-print("[1] Feed \n[2] Play \n[3] Groom")
-action = input("Please select: ")
 
-if action == "1":
-    feed(cat)
-    print("Jerry's hunger bar is now " +str(cat.hunger))
-elif action == "2":
-    play(cat)
-elif action == "3":
-    groom(cat)
 
 
 # define functions for if self.hunger/self.happiness/self.cleanliness = 1 or 0
@@ -55,8 +48,31 @@ If an interaction drops to 1 bar, Jerry will notify the player with a text bubbl
 Jerry will also have a sad face.
 Feed: “I’m hungry meow”
 Play: “I’m really sad meow”
-Groom: “I feel dirty meow”
+Groom: “I need a shower meow”
 If any of the interactions drops to 0 bars, game over screen.
 """
+def stat_drop_1(catClass):
+    if catClass.hunger == 1:
+        print("Jerry: I'm hungry meow :(")
+    elif catClass.happiness == 1:
+        print("Jerry: I'm really sad meow :(")
+    elif catClass.cleanliness == 1:
+        print("Jerry: I need a shower meow :(")
+
+
+def stat_drop_0(catClass):
+    if catClass.hunger == 0:
+        print("Game Over!\nJerry was too hungry and ran away to find a better owner. "
+              "Better luck next time!")
+        return False
+    elif catClass.happiness == 0:
+        print("Game Over!\nJerry was too sad and ran away to find a better owner. "
+              "Better luck next time!")
+        return False
+    elif catClass.cleanliness == 0:
+        print("Game Over!\nJerry got too dirty and ran away to find a better owner. "
+              "Better luck next time!")
+        return False
+    return True
 
 # nya nya
