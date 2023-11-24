@@ -1,7 +1,11 @@
 # create a Jerry class with self.hunger, self.happiness, self.cleanliness
 # game begins with self.hunger = 3, self.happiness = 3, self.cleanliness = 3
-# player wins when self.hunger = 3, self.happiness = 3, self.cleanliness = 3
-class Jerry:
+# player wins when self.hunger = 6, self.happiness = 6 self.cleanliness = 6
+
+# retrieve pet name from main.py
+from main import petName
+
+class Pet:
     def __init__(self, hunger, happiness, cleanliness):
         self.hunger = hunger
         self.happiness = happiness
@@ -20,57 +24,54 @@ Play (Happiness)
 Groom (Cleanliness)
 + 3 bars of groom
 - 2 bars of feed
-- 2 bars of play (cat don’t like being washed)
+- 2 bars of play (animal don’t like being washed)
 
 """
-def feed(catClass):
-    catClass.hunger += 1
-    return catClass
+def feed(petClass):
+    petClass.hunger += 1
+    return petClass
 
-def play(catClass):
-    catClass.happiness += 2
-    catClass.hunger -= 2
-    return catClass
+def play(petClass):
+    petClass.happiness += 2
+    petClass.hunger -= 2
+    return petClass
 
-def groom(catClass):
-    catClass.cleanliness += 3
-    catClass.hunger -= 2
-    catClass.happiness -= 2
-    return catClass
-
-# player's input
-
+def groom(petClass):
+    petClass.cleanliness += 3
+    petClass.hunger -= 2
+    petClass.happiness -= 2
+    return petClass
 
 
 # define functions for if self.hunger/self.happiness/self.cleanliness = 1 or 0
 """
-If an interaction drops to 1 bar, Jerry will notify the player with a text bubble. 
-Jerry will also have a sad face.
-Feed: “I’m hungry meow”
-Play: “I’m really sad meow”
-Groom: “I need a shower meow”
+If an interaction drops to 1 bar, the pet will notify the player with a text bubble. 
+The pet will also have a sad face.
+Feed: “I’m hungry”
+Play: “I’m really sad”
+Groom: “I need a shower”
 If any of the interactions drops to 0 bars, game over screen.
 """
-def stat_drop_1(catClass):
-    if catClass.hunger == 1:
+def stat_drop_1(petClass):
+    if petClass.hunger == 1:
         print("Jerry: I'm hungry meow :(")
-    if catClass.happiness == 1:
+    if petClass.happiness == 1:
         print("Jerry: I'm really sad meow :(")
-    if catClass.cleanliness == 1:
+    if petClass.cleanliness == 1:
         print("Jerry: I need a shower meow :(")
 
 
-def stat_drop_0(catClass):
+def stat_drop_0(petClass):
     stat_bool = True
-    if catClass.hunger == 0:
+    if petClass.hunger == 0:
         print("Jerry was too hungry and ran away to find a better owner. "
               "Better luck next time!")
         stat_bool = False
-    if catClass.happiness == 0:
+    if petClass.happiness == 0:
         print("Jerry was too sad and ran away to find a better owner. "
               "Better luck next time!")
         stat_bool = False
-    if catClass.cleanliness == 0:
+    if petClass.cleanliness == 0:
         print("Jerry got too dirty and ran away to find a better owner. "
               "Better luck next time!")
         stat_bool = False

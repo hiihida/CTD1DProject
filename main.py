@@ -1,54 +1,94 @@
 # Main Menu
 # Jerry the Game!
-print("Jerry the Game!")
-print("[1] New Game")
-print("[2] Continue")
-print("[3] Credits")
-print("[4] Exit")
+def main_menu():
+
+    while True:
+        print("Jerry the Game!")
+        print("[1] New Game")
+        print("[2] Continue")
+        print("[3] Credits")
+        print("[4] Exit")
+
+        while True:
+            option = input("Please select: ")
+            validated_option = input_validation(option)
+            if validated_option != False:
+                break
+
+        if validated_option == 1: # new game
+            new_level()
+            break
+        elif validated_option == 2: # continue from previous progress
+            pass
+            break
+        elif validated_option == 3: # credits
+            pass
+        elif validated_option == 4: # exit
+            print("Goodbye!")
+        break
+
+def input_validation(player_input):
+
+    if player_input.isnumeric() == False:
+        print("Invalid input.")
+        return False
+    else:
+        player_input = int(player_input.strip())
+
+        if player_input is not in range(4):
+            print("Invalid option.")
+            return False
+        return player_input
+
+
 
 # Gameplay
 import gameplay as game # import gameplay.py
 
-cat = game.Jerry(3, 3, 3)
-print("Hunger bar: " + str(cat.hunger) + "\nHappiness bar: " + str(cat.happiness) +
-      "\nCleanliness bar: " + str(cat.cleanliness))
+def new_level():
 
-while True:
-    print("[1] Feed \n[2] Play \n[3] Groom")
-    action = input("Please select: ")
+    #global petName = input("Please enter your pet's name: ")
+    pet = game.Pet(3, 3, 3)
+    print("Hunger bar: " + str(pet.hunger) + "\nHappiness bar: " + str(pet.happiness) +
+          "\nCleanliness bar: " + str(pet.cleanliness))
 
-    if action == "1": # if feed
-        game.feed(cat)
-    elif action == "2": # if play
-        game.play(cat)
-    elif action == "3": # if groom
-        game.groom(cat)
+    while True:
+        print("[1] Feed \n[2] Play \n[3] Groom")
+        action = input("Please select: ")
 
-    # keep the max stat to 4
-    if cat.hunger > 4:
-        cat.hunger = 4
-    elif cat.happiness > 4:
-        cat.happiness = 4
-    elif cat.cleanliness > 4:
-        cat.cleanliness = 4
+        if action == "1": # if feed
+            game.feed(pet)
+        elif action == "2": # if play
+            game.play(pet)
+        elif action == "3": # if groom
+            game.groom(pet)
 
-    # keep the min stat to 0
-    if cat.hunger < 0:
-        cat.hunger = 0
-    elif cat.happiness < 0:
-        cat.happiness = 0
-    elif cat.cleanliness < 0:
-        cat.cleanliness = 0
+        # keep the max stat to 4
+        if pet.hunger > 4:
+            pet.hunger = 4
+        elif pet.happiness > 4:
+            pet.happiness = 4
+        elif pet.cleanliness > 4:
+            pet.cleanliness = 4
 
-    print("Hunger bar: " + str(cat.hunger) + "\nHappiness bar: " + str(cat.happiness) +
-          "\nCleanliness bar: " + str(cat.cleanliness))
+        # keep the min stat to 0
+        if pet.hunger < 0:
+            pet.hunger = 0
+        elif pet.happiness < 0:
+            pet.happiness = 0
+        elif pet.cleanliness < 0:
+            pet.cleanliness = 0
 
-    game.stat_drop_1(cat)
-    game_state = game.stat_drop_0(cat)
-    if game_state is False:
-        print("Game Over!")
-        break
+        print("Hunger bar: " + str(pet.hunger) + "\nHappiness bar: " + str(pet.happiness) +
+              "\nCleanliness bar: " + str(pet.cleanliness))
 
+        game.stat_drop_1(pet)
+        game_state = game.stat_drop_0(pet)
+        if game_state is False:
+            print("Game Over!")
+            break
+
+main_menu()
 # TEST, print your name
 """
 print("Jaf")
