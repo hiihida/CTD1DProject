@@ -35,7 +35,7 @@ def input_validation(player_input):
     else:
         player_input = int(player_input.strip())
 
-        if player_input is not in range(4):
+        if player_input not in range(4):
             print("Invalid option.")
             return False
         return player_input
