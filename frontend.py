@@ -112,6 +112,7 @@ class MainMenu(tk.Frame):
         # command=self.new_game)
         newGameButton.grid(row=1, column=0, pady=0)
 
+        """
         continueGameButton = tk.Button(
             self,
             text="Continue Game",
@@ -122,6 +123,7 @@ class MainMenu(tk.Frame):
             fg="white",
             command=self.continue_game)
         continueGameButton.grid(row=2, column=0, pady=0)
+        """
 
         creditsButton = tk.Button(
             self,
@@ -132,7 +134,7 @@ class MainMenu(tk.Frame):
             bg="blue",
             fg="white",
             command=self.credits)
-        creditsButton.grid(row=3, column=0, pady=0)
+        creditsButton.grid(row=2, column=0, pady=0)
 
         exitButton = tk.Button(
             self,
@@ -143,7 +145,7 @@ class MainMenu(tk.Frame):
             bg="blue",
             fg="white",
             command=self.exit_game)
-        exitButton.grid(row=4, column=0, pady=30)
+        exitButton.grid(row=3, column=0, pady=30)
 
     def new_game(self):
         print("New Game!")

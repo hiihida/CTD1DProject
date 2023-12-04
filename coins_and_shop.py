@@ -10,7 +10,7 @@ class CoinShopSystem:
         self.shop_items = {'Normal Pet Food': 1, 'Fancy Pet Food': 2, 'Exquisite Pet Food': 3, 'Medicine': 5}
 
     def spin_wheel(self):
-        return random.randint(1, 3)
+        return random.randint(1, 4)
 
     def collect_coins(self):
         coins_collected = self.spin_wheel()

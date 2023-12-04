@@ -1,14 +1,7 @@
 # Main Menu
 # Jerry the Game!
 
-# XTODO: check if the game is winnable? lmao
-# XTODO: fix the sick random event - at 0 bars, game over
-# XTODO: add medicine for sick pet
-# XTODO: let player choose what food to feed
-# XTODO: add levels! reformat cat class
-# TODO: ensure user can only go next level when prev level is completed
-# TODO: add save/continue system
-# XTODO: winning cat ascii (happy/dancing cat) and sick cat ascii
+# TODO: put the item ascii :(
 import ascii_art
 import coins_and_shop
 
@@ -17,9 +10,9 @@ def main_menu():
     while True:
         print("Jerry the Game!")
         print("[1] New Game")
-        print("[2] Continue")
-        print("[3] Credits")
-        print("[4] Exit")
+        # print("[2] Continue")
+        print("[2] Credits")
+        print("[3] Exit")
 
         while True:
             option = input("Please select: ")
@@ -30,12 +23,9 @@ def main_menu():
         if validated_option == 1:  # new game
             level_menu()
             break
-        elif validated_option == 2:  # continue from previous progress
-            pass
-            break
-        elif validated_option == 3:  # credits
+        elif validated_option == 2:  # credits
             credits()
-        elif validated_option == 4:  # exit
+        elif validated_option == 3:  # exit
             print("Goodbye!")
             break
 
@@ -47,9 +37,9 @@ def input_validation(menu, player_input):
     else:
         player_input = int(player_input.strip())
 
-        if (menu == 'main_menu' and player_input not in range(1, 5)) or \
+        if (menu == 'main_menu' and player_input not in range(1, 4)) or \
                 (menu == 'level_menu' and player_input not in range(1, 5)) or \
-                (menu == 'game_menu' and player_input not in range(1, 7)):
+                (menu == 'game_menu' and player_input not in range(1, 6)):
             print("Invalid option.")
             return False
         else:
@@ -59,7 +49,9 @@ def input_validation(menu, player_input):
 def level_menu():
     while True:
         print("\nNew Game!")
-        print("\n[1] Level 1 \n[2] Level 2 \n[3] Level 3 \n[4] Back to Main Menu")
+        print(
+            "You are a new student living in a dorm in SUTD when you happen to come across Jerry, the dorm cat! \nYou fell in love at first sight and want to learn how to take care of her, but you have no experience with animals :( \nHowever! With our game, you can learn how to care for cats, along with different types of animals. \nTake good care of your pet to make sure it does not run away!")
+        print("\n[1] Level 1 - Cat\n[2] Level 2 - Dog\n[3] Level 3 - Bird\n[4] Back to Main Menu")
 
         while True:
             option = input("Please chose a level: ")
@@ -90,14 +82,23 @@ def new_level(petType):
     # initialize pet
     if petType == "cat":
         pet = game.Pet("Jerry", petType, 3, 3, 3, False)
+        print("\nLevel 1 - Cat!")
+        print("Try your best to win Jerry's affections.")
     elif petType == "dog":
-        pet = game.Pet("Dog name", petType, 3, 3, 3, False)
+        petName = input("Please enter your dog's name: ")
+        pet = game.Pet(petName, petType, 3, 3, 3, False)
+        print("\nLevel 2 - Dog!")
+        print("Jerry followed you home, but now you have to take care of your dog too! ")
     elif petType == "bird":
-        pet = game.Pet("Bird name", petType, 3, 3, 3, False)
+        petName = input("Please enter your bird's name: ")
+        pet = game.Pet(petName, petType, 3, 3, 3, False)
+        print("\nLevel 3 - Bird!")
+        print(
+            "Jerry went hunting and caught a bird. To your surprise, the bird was still alive. You decided to take the bird in and care for it.")
     else:
-        pet = game.Pet("Jerry", petType, 3, 3, 3, False)  # unbound error
+        # unbound error
+        pet = game.Pet("Jerry", petType, 3, 3, 3, False)
 
-    print("\nNew Game!")
     print("After you perform any three actions (Feed, Play or Groom), the day will end.")
     print(f"You find 5 coins that were lying next to {pet.name}!")
 
@@ -151,7 +152,7 @@ def new_level(petType):
         if game_state is False:
             break
 
-        print("[1] Feed \n[2] Play \n[3] Groom \n[4] Shop \n[5] Save \n[6] Exit")
+        print("[1] Feed \n[2] Play \n[3] Groom \n[4] Shop \n[5] Exit")
 
         while True:
             action = input("Please select: ")
@@ -178,9 +179,7 @@ def new_level(petType):
                     shopBool = coins_shop.main(coin_system)
                     if shopBool is False:
                         break
-            elif validated_action == 5:  # save
-                pass
-            elif validated_action == 6:  # exit
+            elif validated_action == 5:  # exit
                 print("Goodbye!")
                 return False
             break
