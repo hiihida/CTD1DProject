@@ -1,7 +1,6 @@
 # Main Menu
 # Jerry the Game!
 
-# TODO: put the item ascii :(
 import ascii_art
 import coins_and_shop
 

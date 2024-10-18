@@ -134,7 +134,6 @@ class Pet:
         elif self.petType == 'bird':
             self.cleanliness += 2
             self.hunger -= 1
-            self.happiness -= 1
             # print(ascii_art.bird_ascii('groom'))
         action_number += 1
         print(f"You groomed {self.name} =D")
@@ -155,10 +154,10 @@ class Pet:
 
     # https://stackoverflow.com/questions/3679694/a-weighted-version-of-random-choice
     def generate_sick_probability(self, probability):
-        # from day 4 onwards, pet has a chance of getting sick
+        # from day 2 onwards, pet has a chance of getting sick = 0.2
         # chance increases by 0.1 each day
         # after getting sick, medicine has to be given
-        # after recovery, pet has 3 days until there is a chance of getting sick again
+        # after recovery, probability reset to 0.2
         sickBool = random.choices(
             population=[True, False],
             weights=[probability, 1 - probability])[0]
@@ -179,7 +178,7 @@ class Pet:
             if days >= 2:  # day 2 onwards
                 probability = self.generate_sick_probability(probability)
             # uncomment this to show the probability of pet getting sick
-            print(probability, self.sick)
+            #print(probability, self.sick)
 
         # if pet is sick, decrease all stats by 2
         if self.sick is True:

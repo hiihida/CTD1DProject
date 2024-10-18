@@ -2,21 +2,16 @@
 # rmb to give credit
 # https://www.asciiart.eu/animals/cats
 import time
-import os
+#import os
 
 """
-cat ascii
+pet ascii
 - normal
 - happy (after being fed/played)
 - sad (when any bar is at 1)
-- a textbox next to the cat
-
-items ascii
-- food 
-  - normal
-  - fancy
-  - exquisite
-- medicine
+- sick
+- champion
+- running away
 """
 
 
@@ -102,44 +97,8 @@ def cat_ascii(state):
 
   '''
 
-    # shop items
-    normal_cat_food = '''   
-   >-+++(o>
-  '''
-    # fishbone
-    # unknown creator
-    fancy_cat_food = '''
-  Pet food
-     _\\_ 
-  \\\/  o\\
-  //\\___=
-     ''
-  '''
-    # fish
-    # Art by Linda Ball
-    exquisite_cat_food = '''
-       ____________
-      / /       / /'.
-     | |   F   |  | |
-     | |   I   |  | |
-     | |   S   |  | |
-     | |   H   |  |@%@%.-.-.-.
-      \\_\\_______\\_\\@%@%@_ _ _.' 
-                  `     ^ ^ ^
-  '''
-    # Art by Joan Stark
-    medicine = '''
-  ......
-  :.  .:
-  .'  '.
-  |    |
-  |    |
-  `----'
-  '''
-
     cat_state = {'normal': normal_cat, 'feed': fed_cat, 'play': played_cat, 'groom': groomed_cat, 'sad': sad_cat,
-                 'sick': sick_cat, 'champion': champion_cat, 'Normal Pet Food': normal_cat_food,
-                 'Fancy Pet Food': fancy_cat_food, 'Exquisite Pet Food': exquisite_cat_food, 'Medicine': medicine}
+                 'sick': sick_cat, 'champion': champion_cat}
 
     return cat_state[state]
 
@@ -293,47 +252,10 @@ def dog_ascii(state):
 
   '''
 
-    # Art by Joan Stark
-    # shop items
-    normal_dog_food = '''
-   _       _
-  (_'-----'_)
-  (_.'""""._)
-
-  '''
-    # bone
-    # Art by Joan G. Stark
-    fancy_dog_food = '''
-     __________
-    /          \\
-   /    Food    \\
-  /______________\\ 
-  '''
-    exquisite_dog_food = '''
-     ____________
-    / /       / /'.
-   | |   M   |  | |
-   | |   E   |  | |
-   | |   A   |  | |
-   | |   T    |  |@%@%.-.-.-.
-    \\_\\_______\\_\\@%@%@_ _ _.' 
-                `     ^ ^ ^
-  '''
-    # can food
-    # Art by Joan Stark
-    medicine = '''
-  ......
-  :.  .:
-  .'  '.
-  |    |
-  |    |
-  `----'
-  '''
     # Art by Joan G. Stark
 
     dog_state = {'normal': normal_dog, 'feed': fed_dog, 'play': played_dog, 'groom': groomed_dog, 'sad': sad_dog,
-                 'sick': sick_dog, 'champion': champion_dog, 'Normal Pet Food': normal_dog_food,
-                 'Fancy Pet Food': fancy_dog_food, 'Exquisite Pet Food': exquisite_dog_food, 'Medicine': medicine}
+                 'sick': sick_dog, 'champion': champion_dog}
     return dog_state[state]
 
 
@@ -472,50 +394,7 @@ _-  \\\_  _/"->   _/  -_
   '''
     # jgs
 
-    # shop items
-    normal_bird_food = '''
-     oo
-     |"
-     |
-   --'
-  '''
-    # worm
-    # by unknown creator
-    fancy_bird_food = '''
-         __   __
-      .-(  '.'  )-.             ___
-     (   \  |  /   )           /   \\
-    ( `'-.;;;;;.-'` )         /  -  \\
-   ( :-==;;;;;;;==-: )       |  (-)  |
-    (  .-';;;;;'-.  )         \     /
-     (`  /  |  \  `)           '---'
-      '-(__.'.__)-'
-
-  '''
-    # sunflower seeds
-    # by Joan G. Stark
-    exquisite_bird_food = '''
-                 ,..
-   ,--._\\\_.--, (-00)
-  ; #         _:(  -)
-  :          (_____/
-  :            :
-   '.___..___.`
-  '''
-    # apple with a worm
-    # Art by Donovan Bake
-
-    medicine = '''
-  ......
-  :.  .:
-  .'  '.
-  |    |
-  |    |
-  `----'
-  '''
     # by Joan G. Stark
     bird_state = {'normal': normal_bird, 'feed': fed_bird, 'play': played_bird, 'groom': groomed_bird,
-                  'sick': sick_bird, 'sad': sad_bird, 'champion': champion_bird, 'run_away': run_away_bird,
-                  'Normal Pet Food': normal_bird_food, 'Fancy Pet Food': fancy_bird_food,
-                  'Exquisite Pet Food': exquisite_bird_food, 'Medicine': medicine}
+                  'sick': sick_bird, 'sad': sad_bird, 'champion': champion_bird, 'run_away': run_away_bird}
     return bird_state[state]
